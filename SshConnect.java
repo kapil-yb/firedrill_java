@@ -42,26 +42,6 @@ public class SshConnect{
 //            					System.out.println(s); }			
 				}
 		}
-/*
-		String execCode = "sudo ssh -i " + map.get("key_location") + " -ostricthostkeychecking=no -p " + map.get("ssh_port") + " yugabyte@" + map.get("server2_ip") + " date";
-		System.out.println(execCode);
-
-//		pb.command("/bin/bash", "-c","sudo ssh -i",map.get("key_location"),"-ostricthostkeychecking=no -p",map.get("ssh_port"),"yugabyte"+map.get("server2_ip"),"date");
-
-		pb.command("sh", "-c",execCode);		
-
-		System.out.println("command: " + pb.command());
-
-		
-		Process process = pb.start();
-		int status = process.waitFor();
-		System.out.println("Status: " + status);
-
-        BufferedReader stdInput= new BufferedReader(new InputStreamReader(process.getInputStream()));
-        String s = null;
-        while ((s = stdInput.readLine()) != null) {
-            System.out.println(s); }
-*/	
 		}
 	       catch (IOException e) {
             e.printStackTrace();
