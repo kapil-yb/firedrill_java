@@ -1,3 +1,4 @@
+// Blacklist leader
 import java.io.*;
 import java.util.*;  
 
@@ -30,7 +31,7 @@ public class Exercise1{
 			if (value.contains("server"))
 				{
 //					System.out.println(entry.getKey()+" "+entry.getValue()); 
-					String execCode = "sudo ssh -i " + map.get("key_location") + " -ostricthostkeychecking=no -p " + map.get("ssh_port") + " yugabyte@" + entry.getValue() + " " + map.get("install_location") + "yb-admin --master_addresses " + map.get("server1_ip") + "," + map.get("server2_ip") + "," + map.get("server3_ip") + " -certs_dir_name " + map.get("tls_location") + " list_all_masters";
+					String execCode = "sudo ssh -i " + map.get("key_location") + " -ostricthostkeychecking=no -p " + map.get("ssh_port") + " yugabyte@" + entry.getValue() + " " + map.get("install_location") + "yb-admin --master_addresses " + map.get("server1_ip") + "," + map.get("server2_ip") + "," + map.get("server3_ip") + " -certs_dir_name " + map.get("tls_location") + " change_leader_blacklist ADD " + map.get("server1_ip");
 //					System.out.println(execCode);
 					pb.command("sh", "-c",execCode);
 					Process process = pb.start();
@@ -42,7 +43,9 @@ public class Exercise1{
 //					BufferedReader stdInput= new BufferedReader(new InputStreamReader(process.getInputStream()));
 //       					String s = null;
 //  				        while ((s = stdInput.readLine()) != null) {
-//            					System.out.println(s); }			
+//            					System.out.println(s); }		
+					System.out.println("\nThere are no tablet leaders on one node. Please investigate\n");
+					break;	
 				}
 		}
 		}
