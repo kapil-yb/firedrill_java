@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;  
 
-public class SshConnect{
+public class Exercise1{
 	public static void main ( String args[]) {
 	try {
 		File file = new File("/home/yugabyte/firedrill/config.txt");
@@ -30,7 +30,7 @@ public class SshConnect{
 			if (value.contains("server"))
 				{
 //					System.out.println(entry.getKey()+" "+entry.getValue()); 
-					String execCode = "sudo ssh -i " + map.get("key_location") + " -ostricthostkeychecking=no -p " + map.get("ssh_port") + " yugabyte@" + entry.getValue() + " date";
+					String execCode = "sudo ssh -i " + map.get("key_location") + " -ostricthostkeychecking=no -p " + map.get("ssh_port") + " yugabyte@" + entry.getValue() + " " + map.get("install_location") + "yb-admin --master_addresses " + map.get("server1_ip") + "," + map.get("server2_ip") + "," + map.get("server3_ip") + " -certs_dir_name " + map.get("tls_location") + " list_all_masters";
 //					System.out.println(execCode);
 					pb.command("sh", "-c",execCode);
 					Process process = pb.start();
