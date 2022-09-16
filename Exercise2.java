@@ -5,7 +5,7 @@ import java.util.*;
 public class Exercise2{
 	public static void main ( String args[]) {
 	try {
-		File file = new File("/home/yugabyte/firedrill/config.txt");
+		File file = new File("config.txt");
 
 		BufferedReader br = new BufferedReader(new FileReader(file));
 

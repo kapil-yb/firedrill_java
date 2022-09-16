@@ -1,0 +1,7 @@
+server1_ip=10.9.84.129
+server2_ip=10.9.106.39
+server3_ip=10.9.115.144
+key_location=/opt/yugabyte/yugaware/data/keys/e899ecbf-8b45-43a8-905e-71d01765482b/yb-dev-aws_e899ecbf-8b45-43a8-905e-71d01765482b-key.pem
+ssh_port=54422
+install_location=/home/yugabyte/yb-software/yugabyte-2.14.0.0-b94-centos-x86_64/bin/
+tls_location=/home/yugabyte/yugabyte-tls-config/
